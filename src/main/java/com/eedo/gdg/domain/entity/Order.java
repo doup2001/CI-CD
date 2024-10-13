@@ -28,5 +28,7 @@ public class Order {
 
     private Date orderDate;
 
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
 }

@@ -19,6 +19,9 @@ public class Delivery {
     @OneToOne
     private Order order;
 
+    @Embedded
+    private Address address;
 
+    @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
 }
