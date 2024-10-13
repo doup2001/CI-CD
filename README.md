@@ -2,7 +2,7 @@
 
 ## 1 week submission ERD
 
-![image](https://github.com/user-attachments/assets/b9776069-59be-460b-adc9-3e87478b6872)
+![image](https://github.com/user-attachments/assets/f7e86b7d-a9e6-432a-9470-d1a938c536aa)
 
 
 1. **회원(Member)**:
@@ -17,3 +17,5 @@
 3. **배송(Delivery)**:
    - 배송은 하나의 주문과 **1:1(일대일)** 관계로 연결됩니다. 즉, 하나의 주문에 하나의 배송 정보가 연결됩니다.
    - 배송 상태(`status`)는 **열거형(enum)**으로 표현되며, 주문 상태는 “Delivery 또는 "CANCEL" 값 중 하나를 가질 수 있습니다.
+
+
