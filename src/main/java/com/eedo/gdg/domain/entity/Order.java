@@ -34,4 +34,15 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
+    // 비즈니스 로직 추가
+    public void createOrder(Member member,Delivery delivery) {
+        // member 연관성 부여
+        this.member = member;
+        this.member.setOrders(this);
+
+        // delivery 연관성 부여
+        this.delivery = delivery;
+        this.delivery.setOrder(this);
+
+    }
 }

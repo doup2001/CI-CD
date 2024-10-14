@@ -27,4 +27,9 @@ public class Delivery {
 
     @Enumerated(EnumType.STRING)
     private DeliveryStatus status;
+
+    // 연관성 부여를 위한 메서드
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }
