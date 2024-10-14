@@ -37,4 +37,8 @@ public class Member {
         this.orders.add(order);
     }
 
+    public void update(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
 }
