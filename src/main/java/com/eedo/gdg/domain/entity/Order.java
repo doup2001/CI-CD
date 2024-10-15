@@ -23,7 +23,7 @@ public class Order {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "orders")
+    @JoinColumn(name = "members")
     private Member member;
 
     @OneToOne(mappedBy = "order")
@@ -43,6 +43,22 @@ public class Order {
         // delivery 연관성 부여
         this.delivery = delivery;
         this.delivery.setOrder(this);
+    }
+
+    public void complete() {
+        this.status = OrderStatus.COMPLETE;
+        this.delivery.complete();
+    }
+
+    public void cancel() {
+        this.status = OrderStatus.CANCEL;
+        this.delivery.cancel();
+    }
+
+    public void update(Delivery new_delivery) {
+        this.delivery = new_delivery;
+        this.delivery.update(new_delivery.getAddress());
 
     }
+
 }
