@@ -32,7 +32,7 @@ class DeliveryRepositoryTest {
                         .city("성남시")
                         .street_address("장미로55")
                         .zipcode(13441).build())
-                .status(DeliveryStatus.Delivery)
+                .status(DeliveryStatus.DELIVERY)
                 .build();
 
         //when
@@ -51,7 +51,7 @@ class DeliveryRepositoryTest {
                         .city("성남시")
                         .street_address("장미로55")
                         .zipcode(13441).build())
-                .status(DeliveryStatus.Delivery)
+                .status(DeliveryStatus.DELIVERY)
                 .build();
 
         Delivery save = deliveryRepository.save(testDelivery);
