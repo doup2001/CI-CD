@@ -38,6 +38,7 @@ class MemberServiceImplTest {
 
         //then
         assertThat(result.getName()).isEqualTo("DTO생성");
+        log.info("result :"+ result);
     }
 
     @Test
@@ -52,7 +53,10 @@ class MemberServiceImplTest {
                 .build();
 
         Long registerID = memberService.register(dto);
-        log.info(registerID);
+        MemberDto memberDto = memberService.find(registerID);
+
+        log.info(memberDto.getId());
+        log.info(memberDto.getName());
 
         MemberDto changeDto = MemberDto.builder()
                 .id(registerID)
@@ -67,6 +71,8 @@ class MemberServiceImplTest {
 
         //then
         Assertions.assertThat(updateMember.getName()).isEqualTo("값_변경");
+        log.info(updateMember.getId());
+        log.info(updateMember.getName());
     }
 
     @Test
@@ -80,6 +86,7 @@ class MemberServiceImplTest {
                 .build();
 
         Long register = memberService.register(dto);
+        log.info(register);
 
         //when
         memberService.delete(register);
