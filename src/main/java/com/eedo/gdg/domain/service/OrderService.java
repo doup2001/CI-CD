@@ -25,7 +25,7 @@ public interface OrderService {
     Order cancel(Long id);
 
     // 주문 배송지 변경
-    Order updateAddress(DeliveryDto dto);
+    Order updateAddress(Long id, DeliveryDto dto);
 
     // ModelMapper 대신 메서드 추가
     default OrderDto entityToDTO(Order order) {

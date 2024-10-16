@@ -207,7 +207,7 @@ class OrderServiceImplTest {
                 .build();
 
         //when
-        deliveryService.update(update_delivery);
+        orderService.updateAddress(order,update_delivery);
         OrderDto orderDto = orderService.find(order);
 
         //then

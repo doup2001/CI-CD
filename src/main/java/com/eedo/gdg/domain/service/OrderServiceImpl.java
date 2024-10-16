@@ -87,9 +87,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order updateAddress(DeliveryDto dto) {
-        Optional<Order> byId = orderRepository.findById(dto.getId());
-        Order order = byId.orElseThrow();
+    public Order updateAddress(Long id,DeliveryDto dto) {
+        Optional<Order> byId1 = orderRepository.findById(id);
+        Order order = byId1.orElseThrow();
+
+        Long address_id = order.getDelivery().getId();
+        dto.setId(address_id);
 
         Delivery update = deliveryService.update(dto);
         order.update(update);
