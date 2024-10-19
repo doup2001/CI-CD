@@ -67,7 +67,7 @@ class MemberServiceImplTest {
                 .build();
 
         //when
-        Member updateMember = memberService.update(changeDto);
+        MemberDto updateMember = memberService.update(changeDto);
 
         //then
         Assertions.assertThat(updateMember.getName()).isEqualTo("값_변경");

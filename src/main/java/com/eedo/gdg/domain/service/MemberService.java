@@ -16,7 +16,7 @@ public interface MemberService {
     void delete(Long id);
 
     // 멤버 수정 서비스
-    Member update(MemberDto dto);
+    MemberDto update(MemberDto dto);
 
     // ModelMapper 대신 메서드 추가
     default MemberDto entityToDTO(Member member) {

@@ -33,9 +33,9 @@ public class MemberController {
     }
 
     @PutMapping("/update/{id}")
-    public Map<String, Object> update(@RequestBody MemberDto dto) {
-        Member update = memberService.update(dto);
-        MemberDto result = memberService.entityToDTO(update);
+    public Map<String, Object> update(@PathVariable Long id, @RequestBody MemberDto dto) {
+        dto.setId(id);
+        MemberDto result = memberService.update(dto);
         return Map.of("Result", result);
     }
 
@@ -44,4 +44,6 @@ public class MemberController {
         memberService.delete(id);
         return Map.of("Delete", id);
     }
+
+
 }

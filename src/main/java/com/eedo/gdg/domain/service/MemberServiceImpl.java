@@ -44,7 +44,7 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member update(MemberDto dto) {
+    public MemberDto update(MemberDto dto) {
         Optional<Member> byId = memberRepository.findById(dto.getId());
         Member member = byId.orElseThrow();
 
@@ -56,7 +56,8 @@ public class MemberServiceImpl implements MemberService {
                 .street_address(dto.getStreet_address())
                 .zipcode(dto.getZipcode()).build());
 
-        return member;
+        Member save = memberRepository.save(member);
+        return entityToDTO(save);
 
     }
 }
