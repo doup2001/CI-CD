@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    credentialsId: 'Github',
+                    url: 'https://github.com/doup2001/CI-CD.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                // 빌드 명령어를 여기에 추가합니다.
+                sh 'echo Building the application...'
+            }
+        }
+        stage('Test') {
+            steps {
+                // 테스트 명령어를 여기에 추가합니다.
+                sh 'echo Running tests...'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                // 배포 명령어를 여기에 추가합니다.
+                sh 'echo Deploying the application...'
+            }
+        }
+    }
+}
