@@ -10,8 +10,8 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // 빌드 명령어를 여기에 추가합니다.
                 sh 'echo Building the application...'
+                sh './gradlew clean build -x test'
             }
         }
         stage('Test') {
