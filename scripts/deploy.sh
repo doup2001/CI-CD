@@ -2,7 +2,7 @@
 echo "Starting deploy script"
 
 # Docker Compose 실행
-sudo /usr/local/bin/docker-compose --env-file ./application/.env -f ./docker-compose.yml up -d
+sudo /usr/local/bin/docker-compose --env-file .env -f ./docker-compose.yml up -d
 
 # 현재 실행 중인 프로세스를 확인하고 종료
 pid=$(pgrep -f gdg-0.0.1-SNAPSHOT.jar)
