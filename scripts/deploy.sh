@@ -2,10 +2,10 @@
 echo "Starting deploy script"
 
 # application-secret.yml에서 환경 변수 읽기
-export $(grep -v '^#' ./application/application-secret.yml | xargs)
+export $(grep -v '^#' ./application/application-secret.yml | sed 's/: /=/' | xargs)
 
 # Docker Compose 실행
-docker-compose -f ./docker-compose.yml up -d
+/usr/local/bin/docker-compose -f ./docker-compose.yml up -d
 
 # 현재 실행 중인 프로세스를 확인하고 종료
 pid=$(pgrep -f gdg-0.0.1-SNAPSHOT.jar)
