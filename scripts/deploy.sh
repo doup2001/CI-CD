@@ -5,7 +5,7 @@ echo "Starting deploy script"
 export $(grep -v '^#' ./application/application-secret.yml | sed 's/: /=/' | xargs)
 
 # Docker Compose 실행
-/usr/local/bin/docker-compose -f ./docker-compose.yml up -d
+sudo /usr/local/bin/docker-compose -f ./docker-compose.yml up -d
 
 # 현재 실행 중인 프로세스를 확인하고 종료
 pid=$(pgrep -f gdg-0.0.1-SNAPSHOT.jar)
