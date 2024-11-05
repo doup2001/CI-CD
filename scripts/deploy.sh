@@ -26,7 +26,7 @@ if [ -z $IS_GREEN_EXIST ];then
   echo ">>> blue container를 down합니다."
   docker-compose stop blue
 
-# green이 실행 중이면 blue를 up합니다.
+# green이 실행 중이면 blue를 up합니다.
 else
   echo "### GREEN => BLUE ###"
   echo ">>> blue image를 pull합니다."
