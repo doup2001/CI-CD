@@ -6,35 +6,6 @@ services:
       SPRING_DATASOURCE_USERNAME: ${RDS_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${RDS_PASSWORD}
 
-  prometheus:
-    image: prom/prometheus:v2.37.6
-    container_name: prometheus
-    volumes:
-      - ./prometheus/config:/etc/prometheus
-      - ./prometheus/volume:/prometheus
-    ports:
-      - "9091:9090"
-    command:
-      - '--web.enable-lifecycle'
-      - '--config.file=/etc/prometheus/prometheus.yaml'
-      - '--web.console.libraries=/etc/prometheus/console_libraries'
-      - '--web.console.templates=/etc/prometheus/consoles'
-    restart: always
-
-  grafana:
-    image: grafana/grafana
-    container_name: grafana
-    ports:
-      - 3000:3000
-    volumes:
-      - grafana-data:/var/lib/grafana
-      - ./grafana/provisioning/:/etc/grafana/provisioning/
-    restart: always
-    depends_on:
-      - prometheus
-    networks:
-      - t4y
-
   blue:
     container_name: blue
     image: eedoy/gamagochi
@@ -59,6 +30,3 @@ services:
       SPRING_DATASOURCE_USERNAME: ${RDS_USERNAME}
       SPRING_DATASOURCE_PASSWORD: ${RDS_PASSWORD}
 
-volumes:
-  grafana-data:
-  prometheus-data:
