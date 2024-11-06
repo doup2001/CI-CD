@@ -33,6 +33,7 @@ dependencies {
 	// JPA 관련 툴
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'mysql:mysql-connector-java:8.0.32'  // 버전은 최신으로 설정 가능
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
 	// test 관련 툴
 	testCompileOnly 'org.projectlombok:lombok'
